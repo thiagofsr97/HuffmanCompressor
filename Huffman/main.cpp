@@ -9,9 +9,10 @@ int main(int argc, char* argv[]) {
 
     HuffmanCompressor compressor;
 
-    std::string inputFile = "/home/tfs-/CLionProjects/Huffman/text.txt";
+    std::string inputFile = "/home/tfs-/Hacking /HuffmanCompressor/Huffman/text1.txt";
+    std::string outputFileName ="/home/tfs-/Hacking /HuffmanCompressor/Huffman/";
 
-    std::string outputFileName ="/home/tfs-/CLionProjects/Huffman/";
+
     //Printing the lenght of the encoded file.
     std::cout << compressor.encodeFile(inputFile,outputFileName).length() << " bytes";
 

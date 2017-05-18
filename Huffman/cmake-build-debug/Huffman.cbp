@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/tfs-/CLionProjects/Huffman/cmake-build-debug"/>
+				<Option working_dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/tfs-/CLionProjects/Huffman/cmake-build-debug"/>
+				<Option working_dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/tfs-/CLionProjects/Huffman/cmake-build-debug"/>
+				<Option working_dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Huffman">
-				<Option output="/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Huffman" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tfs-/CLionProjects/Huffman/cmake-build-debug"/>
+				<Option output="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/Huffman" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 Huffman"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 Huffman"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Huffman/fast">
-				<Option output="/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Huffman" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tfs-/CLionProjects/Huffman/cmake-build-debug"/>
+				<Option output="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/Huffman" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,35 +77,35 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 Huffman/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/CLionProjects/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 Huffman/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tfs-/Hacking\ /HuffmanCompressor/Huffman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/FileIO.cpp">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/FileIO.h">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/Huffman.cpp">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/Huffman.h">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/Node.cpp">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/Node.h">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/main.cpp">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="/home/tfs-/CLionProjects/Huffman/CMakeLists.txt">
+		<Unit filename="/home/tfs-/Hacking /HuffmanCompressor/Huffman/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

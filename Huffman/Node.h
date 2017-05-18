@@ -14,6 +14,7 @@ private:
     Node* left;
     Node* right;
 
+
 public:
     Node(Node* left, Node* right);
     Node(char character);
@@ -24,7 +25,9 @@ public:
     Node* getLeft();
     Node* getRight();
     void incrementFrequency();
+    void incrementFrequency(int value);
     void FillEncondedTable(std::map<char,std::string> *table,std::string bitsValue);
+    void showTree();
 
 };
 

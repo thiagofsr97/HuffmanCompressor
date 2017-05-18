@@ -59,6 +59,8 @@ Node* HuffmanCompressor::createBinaryTree(FrequencyQueue queue) {
         if(!queue.empty()) queue.pop();
 
         parent = new Node(first,second);
+        parent->incrementFrequency(parent->getFrequency());
+
 
         //if the queue is empty, it means that the grouping has reached the end, leaving the two left
         //nodes to be put into the root node;
@@ -112,6 +114,7 @@ std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string out
 
 
     //Deallocating space used by char
+    root->showTree();
     delete content;
 
     return encondedText;

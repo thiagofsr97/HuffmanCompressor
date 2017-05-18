@@ -12,6 +12,8 @@
 
 size_t FileIO::getFileSize(std::string path){
     std::ifstream file( path, std::ios::binary | std::ios::ate );
+    if(!file.is_open())
+        return 0;
     size_t fileSize = file.tellg();
     file.clear();
     file.close();
@@ -25,9 +27,12 @@ bool FileIO::readFile(std::string path,char bufferOut[]) {
     size_t size = getFileSize(path);
 
     myFile.open (path, std::ios::in | std::ios::out | std::ios::binary);
-
-    if(!myFile.read(bufferOut,size))
+    if(!myFile.is_open())
         return false;
+
+    if(bufferOut != nullptr)
+        if(!myFile.read(bufferOut,size))
+            return false;
 
     myFile.clear();
     myFile.close();

@@ -19,7 +19,7 @@ struct node_cmp
 {
     bool operator()(Node* a, Node* b ) const
     {
-        return a->getFrequency() > b->getFrequency();
+        return a->getFrequency() >= b->getFrequency();
     }
 };
 
@@ -37,6 +37,7 @@ private:
 public:
     std::string encodeFile(std::string inputFile,std::string outputFilePath);
     //std::string decodeFile(std::string inputFile,std::string outputFilePath);
+
     void destroyTree();
 };
 

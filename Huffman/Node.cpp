@@ -6,6 +6,8 @@
 
 #include "Node.h"
 #include <iostream>
+#include <search.h>
+#include <iomanip>
 
 
 Node::Node(char character) {
@@ -54,6 +56,10 @@ void Node::incrementFrequency() {
     this->frequency++;
 }
 
+void Node::incrementFrequency(int value) {
+    this->frequency += value;
+}
+
 void Node::FillEncondedTable(std::map<char,std::string> *table,std::string bitsValue) {
     if(this->isLeaf()){
         table->insert(std::pair<char,std::string>(getSymbol(),bitsValue));
@@ -71,4 +77,21 @@ void Node::FillEncondedTable(std::map<char,std::string> *table,std::string bitsV
 
 char Node::getSymbol() {
     return this->character;
+}
+
+
+void Node::showTree() {
+
+    std::cout << "Character: " << this->character << " Frequency: " << this->frequency << std::endl;
+    if(left != nullptr) {
+
+        std::cout << "Left" << std::endl;
+        left->showTree();
+    }
+    if(right != nullptr) {
+        std::cout << "Right" << std::endl;
+        right->showTree();
+    }
+
+
 }

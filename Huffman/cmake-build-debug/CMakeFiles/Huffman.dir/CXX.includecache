@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/tfs-/CLionProjects/Huffman/FileIO.cpp
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp
 FileIO.h
-/home/tfs-/CLionProjects/Huffman/FileIO.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h
 fstream
 -
 iostream
@@ -16,21 +16,21 @@ iostream
 cstring
 -
 
-/home/tfs-/CLionProjects/Huffman/FileIO.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h
 string
 -
 
-/home/tfs-/CLionProjects/Huffman/Huffman.cpp
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp
 Huffman.h
-/home/tfs-/CLionProjects/Huffman/Huffman.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
 iostream
 -
 cstring
 -
 
-/home/tfs-/CLionProjects/Huffman/Huffman.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
 Node.h
-/home/tfs-/CLionProjects/Huffman/Node.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
 string
 -
 queue
@@ -40,21 +40,25 @@ map
 vector
 -
 FileIO.h
-/home/tfs-/CLionProjects/Huffman/FileIO.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h
 
-/home/tfs-/CLionProjects/Huffman/Node.cpp
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp
 Node.h
-/home/tfs-/CLionProjects/Huffman/Node.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
 iostream
 -
+search.h
+-
+iomanip
+-
 
-/home/tfs-/CLionProjects/Huffman/Node.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
 map
 -
 
-/home/tfs-/CLionProjects/Huffman/main.cpp
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp
 iostream
 -
 Huffman.h
-/home/tfs-/CLionProjects/Huffman/Huffman.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
 

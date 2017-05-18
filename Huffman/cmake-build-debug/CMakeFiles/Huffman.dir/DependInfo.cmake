@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tfs-/CLionProjects/Huffman/FileIO.cpp" "/home/tfs-/CLionProjects/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/FileIO.cpp.o"
-  "/home/tfs-/CLionProjects/Huffman/Huffman.cpp" "/home/tfs-/CLionProjects/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/Huffman.cpp.o"
-  "/home/tfs-/CLionProjects/Huffman/Node.cpp" "/home/tfs-/CLionProjects/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/Node.cpp.o"
-  "/home/tfs-/CLionProjects/Huffman/main.cpp" "/home/tfs-/CLionProjects/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/main.cpp.o"
+  "/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/FileIO.cpp.o"
+  "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/Huffman.cpp.o"
+  "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/Node.cpp.o"
+  "/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
