@@ -47,13 +47,17 @@ Node.h
 /home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
 iostream
 -
-search.h
--
 iomanip
 -
+Huffman.h
+/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
 
 /home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
 map
+-
+vector
+-
+deque
 -
 
 /home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp

@@ -31,10 +31,11 @@ class HuffmanCompressor{
 private:
     Node *root;
     FrequencyQueue createFrequencyTable(char *content,int size);
-    Node* createBinaryTree(FrequencyQueue queue);
+
     std::map<char,std::string> createEncodedMap();
 
 public:
+    Node* createBinaryTree(FrequencyQueue queue);
     std::string encodeFile(std::string inputFile,std::string outputFilePath);
     //std::string decodeFile(std::string inputFile,std::string outputFilePath);
 

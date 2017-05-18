@@ -11,7 +11,7 @@ class FileIO{
 public:
     std::size_t getFileSize(std::string path);
     bool readFile(std::string path,char *bufferOut);
-    bool writeFile(const char *content, int size,std::string path,std::string fileExtension);
+    bool writeFile(std::string content,std::string path,std::string fileExtension);
 
 
 

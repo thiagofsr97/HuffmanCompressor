@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 
     HuffmanCompressor compressor;
 
-    std::string inputFile = "/home/tfs-/Hacking /HuffmanCompressor/Huffman/text1.txt";
+    std::string inputFile = "/home/tfs-/Hacking /HuffmanCompressor/Huffman/text.txt";
     std::string outputFileName ="/home/tfs-/Hacking /HuffmanCompressor/Huffman/";
 
 

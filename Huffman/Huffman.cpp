@@ -7,6 +7,7 @@
 #include <cstring>
 
 
+
 FrequencyQueue HuffmanCompressor::createFrequencyTable(char *character,int size) {
 
     //This map organize and increments frequencies of the characters, putting them in nodes, in order to
@@ -99,9 +100,30 @@ std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string out
 
     root = createBinaryTree(createFrequencyTable(content,size));
 
+
     std::map<char,std::string> encodedMap = createEncodedMap();
 
     std::string encondedText;
+
+    std::deque<int> frequencies;
+    std::deque<char> symbols;
+    serialize(root,&frequencies,&symbols);
+
+    for(char c:symbols)
+        std::cout << c;
+    std::cout << std::endl;
+
+
+    Node *root2;
+    deserialize(&frequencies,&symbols);
+
+
+
+
+    //deserialize(&frequencies,&symbols);
+    std::cout << "========================" << std::endl;
+   // root2->showTree();
+
 
     //Enconding new compressed file
     for(int i = 0; i<size;i++){
@@ -109,12 +131,13 @@ std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string out
     }
     //std::cout << encondedText.size();
 
-    file.writeFile(encondedText.c_str(),encondedText.size(),outputFilePath,"file.tfs");
+    file.writeFile(encondedText,outputFilePath,"file.tfs");
 
 
 
     //Deallocating space used by char
-    root->showTree();
+
+
     delete content;
 
     return encondedText;

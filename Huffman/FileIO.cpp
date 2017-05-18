@@ -39,17 +39,54 @@ bool FileIO::readFile(std::string path,char bufferOut[]) {
     return true;
 
 }
+//
+//bool FileIO::writeFile(const char *content,int size,std::string path, std::string fileExtension) {
+//    std::fstream myFile;
+//    myFile.open(path + fileExtension, std::ios::binary |std::ios::out);
+//    if(!myFile.is_open())
+//        return false;
+//
+//    if(!myFile.write(content,size))
+//        return false;
+//    myFile.close();
+//
+//    return true;
+//
+//}
 
-bool FileIO::writeFile(const char *content,int size,std::string path, std::string fileExtension) {
+bool FileIO::writeFile(std::string content, std::string path, std::string fileExtension) {
+
     std::fstream myFile;
-    myFile.open(path + fileExtension, std::ios::binary |std::ios::out);
-    if(!myFile.is_open())
-        return false;
 
-    if(!myFile.write(content,size))
-        return false;
+    myFile.open(path + fileExtension, std::ios::binary | std::ios::out);
+    if(!myFile.is_open())
+        return false; //error opening file
+
+
+
+    std::string fullStr = content;
+
+    for (int i = 0; i < fullStr.length(); i+=8)
+    {
+        unsigned char byte = 0;
+        std::string str8 = "";
+        if (i + 8 < fullStr.length())
+            str8 = fullStr.substr(i, i + 8);
+        else
+            str8 = fullStr.substr(i, fullStr.length());
+        for (unsigned b = 0; b != 8; ++b)
+        {
+            if (b < str8.length())
+                byte |= (str8[b] & 1) << b; // this line was wrong before
+            else
+                byte |= 1 << b;
+        }
+        myFile.put(byte);
+    }
+    //0int filelen = outf.tellp();
+
     myFile.close();
 
-    return true;
+
 
 }

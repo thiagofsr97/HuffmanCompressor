@@ -9,6 +9,8 @@ CMakeFiles/Huffman.dir/Huffman.cpp.o: ../Huffman.cpp
 CMakeFiles/Huffman.dir/Huffman.cpp.o: ../Huffman.h
 CMakeFiles/Huffman.dir/Huffman.cpp.o: ../Node.h
 
+CMakeFiles/Huffman.dir/Node.cpp.o: ../FileIO.h
+CMakeFiles/Huffman.dir/Node.cpp.o: ../Huffman.h
 CMakeFiles/Huffman.dir/Node.cpp.o: ../Node.cpp
 CMakeFiles/Huffman.dir/Node.cpp.o: ../Node.h
 
