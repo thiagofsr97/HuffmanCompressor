@@ -43,10 +43,10 @@ RM = /home/tfs-/Downloads/clion-2017.1.1/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/tfs-/Hacking /HuffmanCompressor/Huffman"
+CMAKE_SOURCE_DIR = "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Huffman.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Huffman.dir/flags.make
 
 CMakeFiles/Huffman.dir/main.cpp.o: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Huffman.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/main.cpp.o -c "/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Huffman.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/main.cpp.o -c "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/main.cpp"
 
 CMakeFiles/Huffman.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Huffman.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp" > CMakeFiles/Huffman.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/main.cpp" > CMakeFiles/Huffman.dir/main.cpp.i
 
 CMakeFiles/Huffman.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Huffman.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp" -o CMakeFiles/Huffman.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/main.cpp" -o CMakeFiles/Huffman.dir/main.cpp.s
 
 CMakeFiles/Huffman.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/Huffman.dir/main.cpp.o.provides.build: CMakeFiles/Huffman.dir/main.cp
 
 CMakeFiles/Huffman.dir/Node.cpp.o: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/Node.cpp.o: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Huffman.dir/Node.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/Node.cpp.o -c "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Huffman.dir/Node.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/Node.cpp.o -c "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.cpp"
 
 CMakeFiles/Huffman.dir/Node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Huffman.dir/Node.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp" > CMakeFiles/Huffman.dir/Node.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.cpp" > CMakeFiles/Huffman.dir/Node.cpp.i
 
 CMakeFiles/Huffman.dir/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Huffman.dir/Node.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp" -o CMakeFiles/Huffman.dir/Node.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.cpp" -o CMakeFiles/Huffman.dir/Node.cpp.s
 
 CMakeFiles/Huffman.dir/Node.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/Huffman.dir/Node.cpp.o.provides.build: CMakeFiles/Huffman.dir/Node.cp
 
 CMakeFiles/Huffman.dir/Huffman.cpp.o: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/Huffman.cpp.o: ../Huffman.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Huffman.dir/Huffman.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/Huffman.cpp.o -c "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Huffman.dir/Huffman.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/Huffman.cpp.o -c "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.cpp"
 
 CMakeFiles/Huffman.dir/Huffman.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Huffman.dir/Huffman.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp" > CMakeFiles/Huffman.dir/Huffman.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.cpp" > CMakeFiles/Huffman.dir/Huffman.cpp.i
 
 CMakeFiles/Huffman.dir/Huffman.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Huffman.dir/Huffman.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp" -o CMakeFiles/Huffman.dir/Huffman.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.cpp" -o CMakeFiles/Huffman.dir/Huffman.cpp.s
 
 CMakeFiles/Huffman.dir/Huffman.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/Huffman.dir/Huffman.cpp.o.provides.build: CMakeFiles/Huffman.dir/Huff
 
 CMakeFiles/Huffman.dir/FileIO.cpp.o: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/FileIO.cpp.o: ../FileIO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Huffman.dir/FileIO.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/FileIO.cpp.o -c "/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Huffman.dir/FileIO.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Huffman.dir/FileIO.cpp.o -c "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.cpp"
 
 CMakeFiles/Huffman.dir/FileIO.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Huffman.dir/FileIO.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp" > CMakeFiles/Huffman.dir/FileIO.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.cpp" > CMakeFiles/Huffman.dir/FileIO.cpp.i
 
 CMakeFiles/Huffman.dir/FileIO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Huffman.dir/FileIO.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp" -o CMakeFiles/Huffman.dir/FileIO.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.cpp" -o CMakeFiles/Huffman.dir/FileIO.cpp.s
 
 CMakeFiles/Huffman.dir/FileIO.cpp.o.requires:
 
@@ -169,7 +169,7 @@ Huffman: CMakeFiles/Huffman.dir/Huffman.cpp.o
 Huffman: CMakeFiles/Huffman.dir/FileIO.cpp.o
 Huffman: CMakeFiles/Huffman.dir/build.make
 Huffman: CMakeFiles/Huffman.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Huffman"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Huffman"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Huffman.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -189,6 +189,6 @@ CMakeFiles/Huffman.dir/clean:
 .PHONY : CMakeFiles/Huffman.dir/clean
 
 CMakeFiles/Huffman.dir/depend:
-	cd "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/tfs-/Hacking /HuffmanCompressor/Huffman" "/home/tfs-/Hacking /HuffmanCompressor/Huffman" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug" "/home/tfs-/Hacking /HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman" "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman" "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug" "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug" "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Huffman.dir/depend
 

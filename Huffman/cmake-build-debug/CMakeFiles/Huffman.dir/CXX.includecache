@@ -6,31 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.cpp
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.cpp
 FileIO.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.h
 fstream
 -
 iostream
 -
 cstring
 -
-
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h
-string
+deque
 -
 
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.cpp
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.h
+string
+-
+deque
+-
+
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.cpp
 Huffman.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.h
 iostream
 -
 cstring
 -
 
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.h
 Node.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.h
 string
 -
 queue
@@ -40,19 +44,19 @@ map
 vector
 -
 FileIO.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/FileIO.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/FileIO.h
 
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.cpp
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.cpp
 Node.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.h
 iostream
 -
 iomanip
 -
 Huffman.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.h
 
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Node.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Node.h
 map
 -
 vector
@@ -60,9 +64,9 @@ vector
 deque
 -
 
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/main.cpp
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/main.cpp
 iostream
 -
 Huffman.h
-/home/tfs-/Hacking /HuffmanCompressor/Huffman/Huffman.h
+/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.h
 

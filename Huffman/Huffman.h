@@ -31,13 +31,16 @@ class HuffmanCompressor{
 private:
     Node *root;
     FrequencyQueue createFrequencyTable(char *content,int size);
+    void serialize(Node *node, std::deque<int> *frequencies, std::deque<char> *symbols );
+    Node* deserialize(std::deque<int> *frequencies, std::deque<char> *symbols);
+
 
     std::map<char,std::string> createEncodedMap();
 
 public:
     Node* createBinaryTree(FrequencyQueue queue);
     std::string encodeFile(std::string inputFile,std::string outputFilePath);
-    //std::string decodeFile(std::string inputFile,std::string outputFilePath);
+    std::string decodeFile(std::string inputFile,std::string outputFilePath);
 
     void destroyTree();
 };

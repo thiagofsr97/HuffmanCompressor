@@ -33,9 +33,7 @@ public:
     void incrementFrequency(int value);
     void FillEncondedTable(std::map<char,std::string> *table,std::string bitsValue);
     void showTree();
-    friend Node* deserialize(std::deque<int> *frequencies, std::deque<char> *symbols);
 
-    friend void serialize(Node *node, std::deque<int> *frequencies, std::deque<char> *symbols );
 
 
 
