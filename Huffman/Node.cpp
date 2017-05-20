@@ -67,7 +67,7 @@ void Node::incrementFrequency(int value) {
 void Node::FillEncondedTable(std::map<char,std::string> *table,std::string bitsValue) {
     if(this->isLeaf()){
         table->insert(std::pair<char,std::string>(getSymbol(),bitsValue));
-        std::cout << getSymbol() << " " << bitsValue <<  " " << getFrequency() << std::endl;
+       // std::cout << getSymbol() << " " << bitsValue <<  " " << getFrequency() << std::endl;
         return;
     }
 

@@ -42,7 +42,6 @@ public:
     std::string encodeFile(std::string inputFile,std::string outputFilePath);
     std::string decodeFile(std::string inputFile,std::string outputFilePath);
 
-    void destroyTree();
 };
 
 

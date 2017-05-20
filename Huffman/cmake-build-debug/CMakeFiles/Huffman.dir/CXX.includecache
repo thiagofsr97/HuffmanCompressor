@@ -23,6 +23,8 @@ string
 -
 deque
 -
+fstream
+-
 
 /home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/Huffman.cpp
 Huffman.h

@@ -9,14 +9,12 @@ int main(int argc, char* argv[]) {
 
     HuffmanCompressor compressor;
 
-    std::string inputFile = "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/text.txt";
+    std::string inputFile = "/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/smooth.m4a";
     std::string outputFileName ="/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/";
 
-
     compressor.encodeFile(inputFile,outputFileName + "Convict");
-    compressor.decodeFile(outputFileName + "Convict.tfs",outputFileName + "extracted.txt");
+    //compressor.decodeFile(outputFileName + "Convict.tfs",outputFileName + "extracted.m4a");
 
-    compressor.destroyTree();
 
     return 0;
 }

@@ -27,12 +27,12 @@ FrequencyQueue HuffmanCompressor::createFrequencyTable(char *character,int size)
     //Inserting the nodes in the Frequency Queue, which sort them automatically
     FrequencyQueue queue;
 
-    std::cout << "Tabela de frequencia: " << std::endl;
+   // std::cout << "Tabela de frequencia: " << std::endl;
     for(auto const& pair:mapped){
         queue.push(pair.second);
-        std::cout << pair.second->getSymbol();
+       // std::cout << pair.second->getSymbol();
     }
-    std::cout << std::endl;
+    //std::cout << std::endl;
 
     return queue;
 }
@@ -74,52 +74,15 @@ Node* HuffmanCompressor::createBinaryTree(FrequencyQueue queue) {
 
 std::map<char,std::string> HuffmanCompressor::createEncodedMap() {
     std::map<char,std::string> table;
-    std::cout << "Simbolo e bytes associados: " <<std::endl;
+    //std::cout << "Simbolo e bytes associados: " <<std::endl;
     if(root!= nullptr)
         root->FillEncondedTable(&table,"");
     return table;
 }
 
-std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string outputFilePath) {
-    FileIO file;
-    char* content;
-    size_t size;
-
-    size = file.getFileSize(inputFile);
-    content = new char[size];
-    std::cout << "Tamanho do arquivo: " << size * 8 << " bytes"<< std::endl;
-    file.readFile(inputFile,content);
-
-    //defining the root of the tree
 
 
-    root = createBinaryTree(createFrequencyTable(content,size));
 
-    std::map<char,std::string> encodedMap = createEncodedMap();
-    std::string encondedText;
-
-    std::deque<int> frequencies;
-    std::deque<char> symbols;
-    serialize(root,&frequencies,&symbols);
-    //Enconding new compressed file
-    for(int i = 0; i<size;i++){
-        encondedText.append(encodedMap.at(content[i]));
-    }
-    file.writeFile(encondedText,outputFilePath,".tfs",frequencies,symbols,(encondedText.size() % 8));
-    //Deallocating space used by chars
-
-
-    delete content;
-
-
-    return encondedText;
-}
-
-void HuffmanCompressor::destroyTree() {
-    //deallocating entire tree
-
-    delete this->root;
-}
 
 void HuffmanCompressor::serialize(Node *node, std::deque<int> *frequencies, std::deque<char> *symbols) {
     if(node != nullptr){
@@ -158,23 +121,94 @@ Node *HuffmanCompressor::deserialize(std::deque<int> *frequencies, std::deque<ch
     return createBinaryTree(queue);
 }
 
+std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string outputFilePath) {
+    std::cout << "Compressing file... Wait! " <<std::endl;
+    FileIO encodedFile;
+    char* content;
+    size_t size;
+    std::map<char,std::string> encodedMap;
+    std::string encondedText;
+    std::deque<int> frequencies;
+    std::deque<char> symbols;
+    int padding = 0;
+    int count;
+    FrequencyQueue tableQueue;
+
+
+    size = encodedFile.getFileSize(inputFile);
+    content = new char[size];
+    std::cout << "Tamanho do arquivo: " << size * 8 << " bytes"<< std::endl;
+    encodedFile.readFile(inputFile,content);
+
+
+    tableQueue = createFrequencyTable(content,size);
+
+    //defining the root of the tree
+    root = createBinaryTree(tableQueue);
+    encodedMap = createEncodedMap();
+
+
+    serialize(root,&frequencies,&symbols);
+
+
+    //calculating the padding of the encoded file
+
+    count = tableQueue.size();
+    for(int i = 0; i < count; i ++){
+        padding += tableQueue.top()->getFrequency() * encodedMap.at(tableQueue.top()->getSymbol()).size();
+        tableQueue.pop();
+    }
+    padding %= 8;
+
+    //Writing header and enconded content to file
+    encodedFile.writeFile(outputFilePath,".tfs",frequencies,symbols,padding);
+    //Enconding new compressed file
+    for(int i = 0; i<size;i++){
+        encondedText.append(encodedMap.at(content[i]));
+        if(encondedText.size() >= 8){
+            encodedFile.writeEncodedByte(encondedText.substr(0,8).c_str());
+            encondedText.erase(0,8);
+        }
+
+    }
+
+    //if there's padding, then write last byte, filling the rest of it with 1s
+    if(padding != 0) {
+        for (int i = 0; i < 8 - padding; i++) {
+            encondedText.append("1");
+        }
+        encodedFile.writeEncodedByte(encondedText.c_str());
+    }
+    encodedFile.closeFile();
+    //Deallocating space used by chars
+    delete content;
+    delete root;
+
+    std::cout << "File compressed!" << std::endl;
+    return encondedText;
+}
+
 std::string HuffmanCompressor::decodeFile(std::string inputFile, std::string outputFilePath) {
+    std::cout << "Decompressing file...Wait!" << std::endl;
     Node *root,*current;
-    FileIO file;
+    FileIO decodedFile;
     int offset;
     std::deque<int> frequencies;
     std::deque<char> symbols;
 
 
-    file.readerHeader(inputFile,&frequencies,&symbols,&offset);
+    decodedFile.readerHeader(inputFile,&frequencies,&symbols,&offset);
     root = deserialize(&frequencies,&symbols);
     symbols.clear();
-    file.readSymbols(inputFile,&symbols);
+    decodedFile.readSymbols(inputFile,&symbols);
     std::string decoded = "";
     int count;
     char c;
     current = root;
-   // std::cout << "Size" << symbols.size() << std::endl;
+  //  std::cout << "Size" << symbols.size() << std::endl;
+
+    decodedFile.writeDecodedFile(outputFilePath);
+
     for(int i = 0; i < symbols.size(); i++){
         c = symbols.at(i);
         if(i == symbols.size() - 1) {
@@ -187,25 +221,26 @@ std::string HuffmanCompressor::decodeFile(std::string inputFile, std::string out
             if(((c >> j) & 0x01) == 0){
                 current = current->getLeft();
 
-                std::cout << 0;
             }
             else {
                 current = current->getRight();
-                std::cout << 1;
-                }
-                if(current->isLeaf()){
 
-                decoded += current->getSymbol();
+            }
+                if(current->isLeaf()){
+                    decodedFile.writeDecodedByte(current->getSymbol());
 
                 current = root;
             }
 
         }
     }
+    decodedFile.closeFile();
 
-    file.writeDecodedFile(outputFilePath,decoded);
+
 
     delete root;
+
+    std::cout << "File decompressed!" << std::endl;
     return decoded;
 
 }

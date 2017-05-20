@@ -76,51 +76,36 @@ bool FileIO::readerHeader(std::string path,std::deque<int> *frequencies,std::deq
 
 
 
-void writeByte(std::fstream *myFile,std::string fullStr){
-
-    for (int i = 0; i < fullStr.length(); i+=8)
+void FileIO::writeEncodedByte(const char bits[8]){
+    unsigned char byte = 0;
+    for (int i = 0; i != 8; ++i)
     {
-        unsigned char byte = 0;
-        std::string str8 = "";
-        if (i + 8 < fullStr.length()) {
-            str8 = fullStr.substr(i, i + 8);
-//            std::cout << str8 <<std::endl;
+        byte |= (bits[i] & 1) << i; // this line was wrong before
 
-        }
-        else
-            str8 = fullStr.substr(i, fullStr.length());
-        for (unsigned b = 0; b != 8; ++b)
-        {
-            if (b < str8.length())
-                byte |= (str8[b] & 1) << b; // this line was wrong before
-            else {
-                byte |= 1 << b;
-            }
-        }
-        myFile->put(byte);
-        str8.clear();
+    } stream.put(byte);
 
-    }
 }
 
-bool FileIO::writeFile(std::string content, std::string path, std::string fileExtension,std::deque<int> frequencies,std::deque<char> symbols,int offset) {
 
-    std::fstream myFile;
+bool FileIO::writeFile(std::string path, std::string fileExtension,std::deque<int> frequencies,std::deque<char> symbols,int offset) {
 
-    myFile.open(path + fileExtension, std::ios::binary | std::ios::out);
-    if(!myFile.is_open())
+   // std::fstream myFile;
+
+    stream.open(path + fileExtension, std::ios::binary | std::ios::out);
+    if(!stream.is_open())
         return false; //error opening file
 
     //writing header
-    writeHeader(&myFile,frequencies,symbols,offset);
+    writeHeader(&stream,frequencies,symbols,offset);
 
     //writing content to file
-    writeByte(&myFile,content);
-    myFile.close();
+    //writeByte(&myFile,content);
+    //myFile.close();
 }
 
 bool FileIO::readSymbols(std::string path, std::deque<char> *symbols) {
     std::fstream myFile;
+
     myFile.open(path,std::ios::binary|std::ios::in);
     if(!myFile.is_open())
         return false; //could not open the file
@@ -148,15 +133,25 @@ bool FileIO::readSymbols(std::string path, std::deque<char> *symbols) {
 
 }
 
-bool FileIO::writeDecodedFile(std::string path, std::string content) {
+bool FileIO::writeDecodedFile(std::string path) {
     std::fstream myFile;
-    myFile.open(path,std::ios::binary|std::ios::out);
+    stream.open(path,std::ios::binary|std::ios::out);
 
-    if(!myFile.is_open())
+    if(!stream.is_open())
         return false; //error opening file
 
-    myFile.write(content.c_str(),sizeof(char) * content.size());
+//    myFile.write(content.c_str(),sizeof(char) * content.size());
+//
+//    myFile.close();
 
-    myFile.close();
+}
 
+void FileIO::writeDecodedByte(const char bits) {
+
+    stream.put(bits);
+
+}
+
+void FileIO::closeFile() {
+    stream.close();
 }
