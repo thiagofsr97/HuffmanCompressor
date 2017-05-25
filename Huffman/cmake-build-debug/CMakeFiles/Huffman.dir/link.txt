@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/Huffman.dir/main.cpp.o CMakeFiles/Huffman.dir/Node.cpp.o CMakeFiles/Huffman.dir/Huffman.cpp.o CMakeFiles/Huffman.dir/FileIO.cpp.o  -o Huffman 

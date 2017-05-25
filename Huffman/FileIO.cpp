@@ -1,149 +1,129 @@
-//
-// Created by tfs- on 17/05/17.
-//
-
 #include "FileIO.h"
-#include <fstream>
-
-
-#include <iostream>
-#include <cstring>
-#include <deque>
-
 
 size_t FileIO::getFileSize(std::string path){
-    std::ifstream file( path, std::ios::binary | std::ios::ate );
-    if(!file.is_open())
+    stream.open(path, std::ios::binary | std::ios::ate|std::ios::in );
+
+    if(!stream.is_open())
         return 0;
-    size_t fileSize = file.tellg();
-    file.clear();
-    file.close();
+    size_t fileSize = stream.tellg();
+    stream.clear();
+    stream.close();
 
     return fileSize;
 }
 
-bool FileIO::readFile(std::string path,char bufferOut[]) {
-    std::fstream myFile;
+bool FileIO::readFile(std::string path,char **bufferOut, size_t *sizeFile) {
 
     size_t size = getFileSize(path);
+    if(size == 0)
+        return false; // the file couldn't be opened.
 
-    myFile.open (path, std::ios::in | std::ios::out | std::ios::binary);
-    if(!myFile.is_open())
+    if(sizeFile != nullptr)
+        *sizeFile = size;
+
+    *bufferOut = new char[size];
+
+    stream.open (path, std::ios::in | std::ios::binary);
+    if(!stream.is_open())
         return false;
 
-    if(bufferOut != nullptr)
-        if(!myFile.read(bufferOut,size))
+    if(*bufferOut != nullptr)
+        if(!stream.read(*bufferOut,size))
             return false;
 
-    myFile.clear();
-    myFile.close();
+    stream.clear();
+    stream.close();
     return true;
 
 }
 
-
-void writeHeader(std::fstream *myFile,std::deque<int> frequencies,std::deque<char> symbols,int offset){
-    int aux = frequencies.size();
-    myFile->write(reinterpret_cast<char*>(&aux),sizeof(int));
-    for(unsigned long i = 0; i <frequencies.size();i++){
-        myFile->write(&(symbols.at(i)),sizeof(char));
-        myFile->write(reinterpret_cast<char*>(&(frequencies.at(i))),sizeof(int));
-    }
-
-    //writing how many bits will not be considered at the end of the file
-    myFile->write(reinterpret_cast<char*>(&offset),sizeof(int));
-}
-
-bool FileIO::readerHeader(std::string path,std::deque<int> *frequencies,std::deque<char> *symbols,int *offset){
-    int size;
-    int frequency;
-    char symbol;
-    std::fstream myFile;
-    myFile.open(path, std::ios::binary | std::ios::in);
-    myFile.read(reinterpret_cast<char*>(&size),sizeof(int));
-    for(int i = 0; i < size; i ++){
-        myFile.read(&symbol,sizeof(char));
-        symbols->push_back(symbol);
-        myFile.read(reinterpret_cast<char*>(&frequency),sizeof(int));
-        frequencies->push_back(frequency);
-    }
-
-    myFile.read(reinterpret_cast<char*>(offset),sizeof(int));
-
-    myFile.close();
-
-}
+bool FileIO::writeEncodedFile(std::string path, std::string fileExtension,std::deque<int> frequencies,std::deque<char> symbols,int padding) {
 
 
-
-void FileIO::writeEncodedByte(const char bits[8]){
-    unsigned char byte = 0;
-    for (int i = 0; i != 8; ++i)
-    {
-        byte |= (bits[i] & 1) << i; // this line was wrong before
-
-    } stream.put(byte);
-
-}
-
-
-bool FileIO::writeFile(std::string path, std::string fileExtension,std::deque<int> frequencies,std::deque<char> symbols,int offset) {
-
-   // std::fstream myFile;
 
     stream.open(path + fileExtension, std::ios::binary | std::ios::out);
     if(!stream.is_open())
         return false; //error opening file
 
-    //writing header
-    writeHeader(&stream,frequencies,symbols,offset);
 
-    //writing content to file
-    //writeByte(&myFile,content);
-    //myFile.close();
-}
-
-bool FileIO::readSymbols(std::string path, std::deque<char> *symbols) {
-    std::fstream myFile;
-
-    myFile.open(path,std::ios::binary|std::ios::in);
-    if(!myFile.is_open())
-        return false; //could not open the file
-
-    int size;
-    myFile.read(reinterpret_cast<char*>(&size),sizeof(int));
-    for(int i = 0; i < size; i++){
-        myFile.seekg(sizeof(char),std::ios::cur);
-        myFile.seekg(sizeof(int),std::ios::cur);
+    unsigned long aux = frequencies.size();
+   stream.write(reinterpret_cast<char*>(&aux),sizeof(int));
+    for(unsigned long i = 0; i <frequencies.size();i++){
+        stream.write(&(symbols.at(i)),sizeof(char));
+        stream.write(reinterpret_cast<char*>(&(frequencies.at(i))),sizeof(int));
     }
 
-    myFile.seekg(sizeof(int),std::ios::cur);
+    //writing how many bits will not be considered at the end of the file (padding)
+    stream.write(reinterpret_cast<char*>(&padding),sizeof(int));
+
+    //File won't be closed here, so the content may be written by other function
+    return true;
+
+}
+
+void FileIO::writeEncodedByte(const char bits[], unsigned long bufferSize){
+    char byte[bufferSize];
+    int j = 0;
+    int x = 0;
+    byte[0] = 0;
+
+    for (int i = 0; i < 8*bufferSize; i++)
+    {
+        byte[j] |= (bits[i] & 1) << x++;
+        if(x == 8){
+            j++;
+            x = 0;
+            byte[j] = 0;
+        }
+    }
+    stream.write(byte,bufferSize);
+
+}
+
+
+bool FileIO::readerHeader(std::string path,std::deque<int> *frequencies,std::deque<char> *symbols,int *padding){
+    int size;
+    int frequency;
+    char symbol;
+
+    stream.open(path, std::ios::binary | std::ios::in);
+    if(!stream.is_open())
+        return false;
+
+    stream.read(reinterpret_cast<char*>(&size),sizeof(int));
+    for(int i = 0; i < size; i ++){
+        stream.read(&symbol,sizeof(char));
+        symbols->push_back(symbol);
+        stream.read(reinterpret_cast<char*>(&frequency),sizeof(int));
+        frequencies->push_back(frequency);
+    }
+
+    stream.read(reinterpret_cast<char*>(padding),sizeof(int));
+
+    //file will be closed after the content has been read
+    return true;
+
+}
+
+void FileIO::readSymbols(std::deque<char> *symbols) {
+    //Constructing a vector of symbols to be decoded by program.
     char c;
-
-
-    while(!myFile.eof()){
-        myFile.read(&c,sizeof(char));
+    while(!stream.eof()){
+        stream.read(&c,sizeof(char));
         symbols->push_back(c);
 
     }
-
-    // Needs to remove one char, refered to EOF.
+    // Needs to remove one char, refered to EOF byte.
     symbols->pop_back();
-    myFile.close();
+    stream.close();
 
 }
 
 bool FileIO::writeDecodedFile(std::string path) {
-    std::fstream myFile;
     stream.open(path,std::ios::binary|std::ios::out);
 
     if(!stream.is_open())
         return false; //error opening file
-
-//    myFile.write(content.c_str(),sizeof(char) * content.size());
-//
-//    myFile.close();
-
 }
 
 void FileIO::writeDecodedByte(const char bits) {
@@ -153,5 +133,6 @@ void FileIO::writeDecodedByte(const char bits) {
 }
 
 void FileIO::closeFile() {
-    stream.close();
+    if(stream.is_open())
+        stream.close();
 }

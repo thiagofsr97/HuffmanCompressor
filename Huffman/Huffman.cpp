@@ -1,10 +1,4 @@
-//
-// Created by tfs- on 17/05/17.
-//
-
 #include "Huffman.h"
-#include <iostream>
-#include <cstring>
 
 FrequencyQueue HuffmanCompressor::createFrequencyTable(char *character,int size) {
 
@@ -21,18 +15,18 @@ FrequencyQueue HuffmanCompressor::createFrequencyTable(char *character,int size)
         mapped.at(character[i])->incrementFrequency();
     }
 
-    std::cout << "Tamanho da tabela de frequencia: " << mapped.size() <<  std::endl;
+    std::cout << "Size of the frequency table: " << mapped.size() <<  std::endl;
 
 
     //Inserting the nodes in the Frequency Queue, which sort them automatically
     FrequencyQueue queue;
 
-   // std::cout << "Tabela de frequencia: " << std::endl;
+
     for(auto const& pair:mapped){
         queue.push(pair.second);
-       // std::cout << pair.second->getSymbol();
+
     }
-    //std::cout << std::endl;
+
 
     return queue;
 }
@@ -74,14 +68,10 @@ Node* HuffmanCompressor::createBinaryTree(FrequencyQueue queue) {
 
 std::map<char,std::string> HuffmanCompressor::createEncodedMap() {
     std::map<char,std::string> table;
-    //std::cout << "Simbolo e bytes associados: " <<std::endl;
     if(root!= nullptr)
         root->FillEncondedTable(&table,"");
     return table;
 }
-
-
-
 
 
 void HuffmanCompressor::serialize(Node *node, std::deque<int> *frequencies, std::deque<char> *symbols) {
@@ -121,25 +111,26 @@ Node *HuffmanCompressor::deserialize(std::deque<int> *frequencies, std::deque<ch
     return createBinaryTree(queue);
 }
 
-std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string outputFilePath) {
+bool HuffmanCompressor::encodeFile(std::string inputFile, std::string outputFilePath) {
     std::cout << "Compressing file... Wait! " <<std::endl;
     FileIO encodedFile;
-    char* content;
+    char *content;
     size_t size;
     std::map<char,std::string> encodedMap;
     std::string encondedText;
     std::deque<int> frequencies;
     std::deque<char> symbols;
     int padding = 0;
-    int count;
+    unsigned long count;
+    unsigned long numberOfChars;
     FrequencyQueue tableQueue;
 
+    if(!encodedFile.readFile(inputFile,&content, &size)){
+        std::cout << "File couldn't be opened, please check the path and try again" << std::endl;
+        return false;
+    }
 
-    size = encodedFile.getFileSize(inputFile);
-    content = new char[size];
-    std::cout << "Tamanho do arquivo: " << size * 8 << " bytes"<< std::endl;
-    encodedFile.readFile(inputFile,content);
-
+    std::cout << "File size: " << size * 8 << " bytes"<< std::endl;
 
     tableQueue = createFrequencyTable(content,size);
 
@@ -147,101 +138,134 @@ std::string HuffmanCompressor::encodeFile(std::string inputFile, std::string out
     root = createBinaryTree(tableQueue);
     encodedMap = createEncodedMap();
 
-
+    //Serializing the tree to write at the head of the compressed file
     serialize(root,&frequencies,&symbols);
 
 
     //calculating the padding of the encoded file
 
     count = tableQueue.size();
+    numberOfChars = 0;
     for(int i = 0; i < count; i ++){
-        padding += tableQueue.top()->getFrequency() * encodedMap.at(tableQueue.top()->getSymbol()).size();
+        numberOfChars += tableQueue.top()->getFrequency() * encodedMap.at(tableQueue.top()->getSymbol()).size();
         tableQueue.pop();
     }
-    padding %= 8;
+
+
+
+    padding = numberOfChars % 8;
+
+    std::cout << "Size of the compressed file: " << numberOfChars << " bytes" << std::endl;
+
+    unsigned long bufferSize = (numberOfChars/8);
+    if(bufferSize > 1024)
+        bufferSize/=1024;
+    else if(bufferSize > 512)
+        bufferSize /= 512;
+    else
+        bufferSize = 1;
 
     //Writing header and enconded content to file
-    encodedFile.writeFile(outputFilePath,".tfs",frequencies,symbols,padding);
-    //Enconding new compressed file
-    for(int i = 0; i<size;i++){
-        encondedText.append(encodedMap.at(content[i]));
-        if(encondedText.size() >= 8){
-            encodedFile.writeEncodedByte(encondedText.substr(0,8).c_str());
-            encondedText.erase(0,8);
-        }
 
+    if(!encodedFile.writeEncodedFile(outputFilePath,".tfs",frequencies,symbols,padding)){
+        std::cout << "Output file couldn't be created." << std::endl;
     }
 
-    //if there's padding, then write last byte, filling the rest of it with 1s
+    //Enconding new compressed file and writing to file
+
+    unsigned long j = 1;
+    for(unsigned long i =0; i<size;i++){
+        if(i>j)
+            break;
+        encondedText.append(encodedMap.at(content[i]));
+        if(encondedText.size() >= 8 * bufferSize){
+            encodedFile.writeEncodedByte(encondedText.substr(0,8 * bufferSize).c_str(), bufferSize);
+            encondedText.erase(0,8 * bufferSize); // clean up the buffer to next byte
+            j = i;
+        }
+    }
+
+    //Writes the remaining bytes that didn't fit the bufferSize
+    if(++j < size){
+        for(;j<size;j++){
+            encondedText.append(encodedMap.at(content[j]));
+           if(encondedText.size() >=8){
+                encodedFile.writeEncodedByte(encondedText.substr(0,8).c_str(),1);
+                encondedText.erase(0,8);
+            }
+        }
+    }
+
+
+
+    //if there's padding, then write last byte, filling the rest of it with 1's
     if(padding != 0) {
+
         for (int i = 0; i < 8 - padding; i++) {
             encondedText.append("1");
         }
-        encodedFile.writeEncodedByte(encondedText.c_str());
+        encodedFile.writeEncodedByte(encondedText.c_str(),1);
     }
     encodedFile.closeFile();
-    //Deallocating space used by chars
+
+    //Deallocating memory used by chars and Huffman Tree
     delete content;
     delete root;
 
     std::cout << "File compressed!" << std::endl;
-    return encondedText;
+    return true;
 }
 
-std::string HuffmanCompressor::decodeFile(std::string inputFile, std::string outputFilePath) {
+bool HuffmanCompressor::decodeFile(std::string inputFile, std::string outputFilePath) {
     std::cout << "Decompressing file...Wait!" << std::endl;
     Node *root,*current;
     FileIO decodedFile;
-    int offset;
+    int padding;
     std::deque<int> frequencies;
     std::deque<char> symbols;
 
 
-    decodedFile.readerHeader(inputFile,&frequencies,&symbols,&offset);
+    if(!decodedFile.readerHeader(inputFile,&frequencies,&symbols,&padding)){
+        std::cout << "Input file couldn't be opened, please check the path and try again" << std::endl;
+        return false;
+    }
     root = deserialize(&frequencies,&symbols);
     symbols.clear();
-    decodedFile.readSymbols(inputFile,&symbols);
-    std::string decoded = "";
+    decodedFile.readSymbols(&symbols);
     int count;
     char c;
     current = root;
-  //  std::cout << "Size" << symbols.size() << std::endl;
 
     decodedFile.writeDecodedFile(outputFilePath);
 
-    for(int i = 0; i < symbols.size(); i++){
+    count = 8;
+
+    for(unsigned long i = 0; i < symbols.size(); i++){
         c = symbols.at(i);
         if(i == symbols.size() - 1) {
-            count = offset;
+            count = padding;
         }
-        else
-            count = 8;
 
         for(int j = 0; j<count; j++){
             if(((c >> j) & 0x01) == 0){
                 current = current->getLeft();
-
             }
             else {
                 current = current->getRight();
-
             }
                 if(current->isLeaf()){
                     decodedFile.writeDecodedByte(current->getSymbol());
-
                 current = root;
             }
 
         }
     }
     decodedFile.closeFile();
-
-
-
+    //Deallocating memory used by Huffman Tree
     delete root;
 
     std::cout << "File decompressed!" << std::endl;
-    return decoded;
+    return true;
 
 }
 

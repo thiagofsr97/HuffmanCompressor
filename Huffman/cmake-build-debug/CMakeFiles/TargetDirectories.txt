@@ -1,3 +1,0 @@
-/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/tfs-/Hacking/ED Project/HuffmanCompressor/Huffman/cmake-build-debug/CMakeFiles/Huffman.dir

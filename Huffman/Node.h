@@ -1,7 +1,3 @@
-//
-// Created by tfs- on 17/05/17.
-//
-
 #ifndef HUFFMAN_NODE_H
 #define HUFFMAN_NODE_H
 
@@ -9,7 +5,11 @@
 #include <vector>
 #include <deque>
 
-
+//! Node Class.
+/*!
+  Class responsible for representing a node of a tree. Its goal is to
+  support creation of the Huffman Tree.
+*/
 class Node{
 
 private:
